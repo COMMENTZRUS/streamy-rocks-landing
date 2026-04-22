@@ -3,3 +3,7 @@ node_modules/
 .DS_Store
 
 .vercel
+
+# Scraping scratch (vendor bundles are huge; keep only committed assets/images)
+tmp-page.html
+assets/vendor/
