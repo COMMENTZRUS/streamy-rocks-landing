@@ -1,175 +1,156 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <title>Streamy.Rocks — Your videos flow from decentralized storage</title>
-    <meta
-      name="description"
-      content="Streamy.Rocks — decentralized video streaming from storage to your TV."
+    <title>Streamy.Rocks</title>
+    <meta name="description" content="Your videos flow from decentralized storage to your screen." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Streamy.Rocks — Your videos flow from decentralized storage" />
-    <meta
-      property="og:description"
-      content="Streamy.Rocks — decentralized video streaming from storage to your TV."
-    />
-    <meta property="og:image" content="/assets/images/og-social.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Streamy.Rocks — Your videos flow from decentralized storage" />
-    <meta
-      name="twitter:description"
-      content="Streamy.Rocks — decentralized video streaming from storage to your TV."
-    />
-    <meta name="twitter:image" content="/assets/images/og-social.jpg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      :root {
+        --bg: #081019;
+        --card: #0f1b28;
+        --border: rgba(255, 255, 255, 0.12);
+        --text: #ecf7f1;
+        --accent: #92f6b3;
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: clamp(1.25rem, 4vw, 2.5rem);
+      }
+      h1 {
+        font-size: clamp(1.75rem, 5vw, 2.35rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin: 0 0 0.75rem;
+      }
+      .lede {
+        margin: 0 0 1.5rem;
+        opacity: 0.9;
+        max-width: 42ch;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 1.25rem 1.35rem;
+        margin-bottom: 1rem;
+      }
+      .card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+      }
+      .card p {
+        margin: 0;
+        font-size: 0.95rem;
+        opacity: 0.92;
+      }
+      a.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1.1rem;
+        border-radius: 0.45rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        background: var(--accent);
+        color: #062111;
+        text-decoration: none;
+        margin-top: 0.25rem;
+      }
+      a.btn:hover {
+        filter: brightness(1.05);
+      }
+      footer {
+        margin-top: 2rem;
+        font-size: 0.8rem;
+        opacity: 0.55;
+      }
+
+      /* Tight entrance animations (no third-party runtime) */
+      @keyframes rise-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .anim {
+        opacity: 0;
+        animation: rise-in var(--dur, 0.45s) var(--ease) forwards;
+      }
+      .anim-1 {
+        --dur: 0.38s;
+        animation-delay: 0.04s;
+      }
+      .anim-2 {
+        --dur: 0.34s;
+        animation-delay: 0.12s;
+      }
+      .anim-3 {
+        --dur: 0.32s;
+        animation-delay: 0.2s;
+      }
+      .anim-4 {
+        --dur: 0.3s;
+        animation-delay: 0.26s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .anim {
+          animation: none !important;
+          opacity: 1 !important;
+        }
+      }
+    </style>
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <header class="site-header">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text">Streamy.Rocks</span>
-      </div>
-      <nav class="nav" aria-label="Primary">
-        <a href="#why">Why</a>
-        <a href="#how">How it works</a>
-        <a href="#voices">Users</a>
-        <a href="#setup">Setup</a>
-        <a class="nav-cta" href="#preorder">Pre-order</a>
-      </nav>
-    </header>
+    <div class="wrap">
+      <header class="anim anim-1">
+        <h1>Streamy.Rocks</h1>
+        <p class="lede">Your videos flow from decentralized storage to your screen.</p>
+        <a class="btn anim anim-2" href="/">Open the app</a>
+      </header>
 
-    <main id="main">
-      <section class="hero">
-        <div class="hero-layout">
-          <div class="hero-copy">
-            <p class="kicker">Your videos flow from decentralized storage</p>
-            <h1>Streamy.Rocks</h1>
-            <p class="lede">
-              Dive into the future of video streaming with streamy.rocks! Decentralize your home theater with content
-              straight from decentralized storage to your TV.
-            </p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#preorder">Pre-order</a>
-              <a class="btn ghost" href="#how">See how it works</a>
-            </div>
-            <p class="hero-sub">The future of streaming is decentralized.</p>
-          </div>
-          <figure class="hero-figure">
-            <img
-              src="/assets/images/og-social.jpg"
-              width="1200"
-              height="630"
-              alt="Streamy.Rocks — decentralized streaming preview"
-              loading="eager"
-              decoding="async"
-            />
-            <figcaption class="hero-caption">Preview image from the live streamy.rocks social card (Gamma-hosted).</figcaption>
-          </figure>
-        </div>
+      <section class="card anim anim-2" style="margin-top: 1.75rem">
+        <h2>Decentralized streaming</h2>
+        <p>Creator channels, uploads, and playback built for the open web.</p>
       </section>
 
-      <section id="why" class="panel">
-        <h2>Why decentralized video?</h2>
-        <p>
-          Supporting decentralized video platforms helps protect creator independence and ensures content remains free
-          from centralized control, giving viewers and creators more freedom in how they share and consume media.
-        </p>
-        <p class="aside">
-          We get it, change is scary. But so is running out of popcorn during the Ethereum film. Take the plunge and join
-          the thousands of happy streamers who've already upgraded their home theater to run on decentralized rails.
-        </p>
+      <section class="card anim anim-3">
+        <h2>Own your distribution</h2>
+        <p>Reduce platform lock-in and keep attribution with your channel.</p>
       </section>
 
-      <section id="how" class="panel">
-        <h2>How Streamy works: it's not rocket science</h2>
-        <ol class="steps">
-          <li>
-            <span class="step-num">1</span>
-            <div>
-              <h3>Upload and share token-gated video files</h3>
-              <p>
-                Streamy video content gets chopped up in a zillion pieces, and distributed across the network faster
-                than you can say &quot;decentralized&quot;.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="step-num">2</span>
-            <div>
-              <h3>Find videos by hash</h3>
-              <p>
-                When you hit play, streamy.rocks assembles the bits and pieces back together like a digital jigsaw
-                puzzle.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="step-num">3</span>
-            <div>
-              <h3>Stream and enjoy</h3>
-              <p>Sit back and watch as your video flows directly from creator to viewer.</p>
-            </div>
-          </li>
-        </ol>
+      <section class="card anim anim-4">
+        <h2>Get started</h2>
+        <p>Use the main Streamy web app for sign-in, dashboard, and uploads.</p>
+        <p style="margin-top: 0.75rem"><a class="btn" href="/preorder">Preorder</a></p>
       </section>
 
-      <section id="voices" class="panel">
-        <h2>What our users are saying</h2>
-        <div class="quotes">
-          <figure class="quote">
-            <blockquote>
-              &quot;streamy.rocks enables immediate global distribution for documentary filmmakers.&quot;
-            </blockquote>
-            <figcaption>Sarah, documentary enthusiast</figcaption>
-          </figure>
-          <figure class="quote">
-            <blockquote>
-              &quot;Finally, a streaming service that doesn't make me want to throw my router out the window.&quot;
-            </blockquote>
-            <figcaption>Tim, tech guru</figcaption>
-          </figure>
-          <figure class="quote">
-            <blockquote>&quot;My gaming stream is so smooth on Streamy, I can't sense any lag.&quot;</blockquote>
-            <figcaption>Kevin, gamer extraordinaire</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="panel manifesto">
-        <h2>Streamy.Rocks</h2>
-        <p>
-          Should algorithms decide who gets to see what? Imagine a world where your favorite creators can share their
-          content direct to consumers' home television sets, without centralized streaming services.
-        </p>
-      </section>
-
-      <section id="setup" class="panel">
-        <h2>The Streamy.Rocks setup</h2>
-        <ol class="setup-flow">
-          <li><span class="pill">1</span> Sign up</li>
-          <li><span class="pill">2</span> Run Streamy</li>
-          <li><span class="pill">3</span> Stream</li>
-          <li><span class="pill">4</span> Enjoy</li>
-        </ol>
-      </section>
-
-      <section id="preorder" class="panel cta-panel">
-        <h2>Ready to rock with Streamy?</h2>
-        <p>Join the decentralized video movement.</p>
-        <p class="ship"><strong>Shipping Spring 2025</strong> — pre-order here.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="mailto:hello@streamy.rocks?subject=Streamy%20pre-order">Email to pre-order</a>
-          <a class="btn ghost" href="#main">Back to top</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>Streamy.Rocks — decentralized rails for the living room.</p>
-    </footer>
+      <footer>© Streamy</footer>
+    </div>
   </body>
 </html>

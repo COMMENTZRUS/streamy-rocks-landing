@@ -9,7 +9,7 @@ Static HTML/CSS rebuild of the public `streamy.rocks` marketing copy, structured
 
 ## Social / OG image
 
-- `assets/images/og-social.jpg` is the **same JPEG** referenced by the live `streamy.rocks` Open Graph and Twitter meta (`assets.api.gamma.app/.../screenshots/...`), downloaded for self-hosting.
+- `assets/images/og-social.jpg` is a self-hosted social preview image for Open Graph and Twitter cards.
 - Meta tags use `/assets/images/og-social.jpg`. For some crawlers you may want absolute URLs (e.g. `https://streamy.rocks/assets/images/og-social.jpg`) after the production domain is fixed.
 
 ## Vercel
