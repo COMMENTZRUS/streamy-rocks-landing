@@ -1,36 +1,31 @@
-# streamy.rocks landing (static rebuild)
+# streamy.rocks
 
-Static HTML/CSS rebuild of the public `streamy.rocks` marketing copy, structured for production hosting on Vercel.
+Self-hosted static build of the **Streamy.Rocks** landing page, deployed directly on **GitHub Pages** with zero third-party site builder dependencies.
 
-## Design notes
+## Hosting & Custom Domain (GitHub Pages)
 
-- Uses **sRGB hex** and **rgba integer alpha** only (no `color-mix()`, no Display-P3-only colors).
-- `color-scheme: dark` is set for predictable browser chrome behavior.
+- **Branch / Folder:** `master` / `/` (root)
+- **Custom Domain (`CNAME`):** `streamy.rocks`
+- **Jekyll:** Disabled via `.nojekyll`
 
-## Social / OG image
+### Required DNS Records (GoDaddy / DNS Provider)
 
-- `assets/images/og-social.jpg` is a self-hosted social preview image for Open Graph and Twitter cards.
-- Meta tags use `/assets/images/og-social.jpg`. For some crawlers you may want absolute URLs (e.g. `https://streamy.rocks/assets/images/og-social.jpg`) after the production domain is fixed.
+Point the apex domain `streamy.rocks` to GitHub Pages IPv4 addresses and `www` to `commentzrus.github.io`:
 
-## Vercel
+| Type  | Name | Value |
+| ----- | ---- | ----- |
+| A     | `@`  | `185.199.108.153` |
+| A     | `@`  | `185.199.109.153` |
+| A     | `@`  | `185.199.110.153` |
+| A     | `@`  | `185.199.111.153` |
+| CNAME | `www` | `commentzrus.github.io` |
 
-- `vercel.json` only sets long-cache headers for `/assets/*`. Static files (`index.html`, `styles.css`, images) are served as files — **no** catch-all rewrite to `index.html` (that would break CSS and images).
+Remove any old Gamma A records (`3.136.232.26`, `3.137.108.170`) and the old `sites.gamma.app` CNAME. Once DNS propagates, GitHub Pages automatically issues an HTTPS certificate for `streamy.rocks`.
 
-## Local preview
+## Local Preview
 
-Open `index.html` in a browser, or serve the folder:
+Open `index.html` in a browser, or run any static file server from this directory:
 
 ```bash
 npx serve .
 ```
-
-## Deploy (Vercel)
-
-From this directory:
-
-```bash
-vercel
-vercel --prod
-```
-
-Attach custom domain `streamy.rocks` in the Vercel project settings after DNS is pointed at Vercel.
