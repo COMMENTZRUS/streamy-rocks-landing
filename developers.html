@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Developer Docs — Streamy.Rocks &amp; Streamy OS</title>
+    <meta
+      name="description"
+      content="Developer documentation for Streamy OS microservices, Living-Room REST APIs, Panorama Edge ads, dual-chain MIT USDC splitters (Solana + Ethereum/Base), and Android TV SDK."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-bg" aria-hidden="true"></div>
+
+    <header class="site-nav">
+      <div class="site-nav-inner">
+        <a class="site-brand" href="./index.html">
+          <img src="./favicon.svg" alt="" width="28" height="28" />
+          <span>Streamy.Rocks</span>
+        </a>
+        <nav class="site-nav-links" aria-label="Primary navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./roadmap.html">Roadmap</a>
+          <a class="nav-link" href="./panorama.html">Panorama Ads</a>
+          <a class="nav-link nav-link--active" href="./developers.html">Developer Docs</a>
+          <a class="nav-cta" href="./index.html#preorder">Hardware Status</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <!-- Hero -->
+      <section class="band band--hero band--hero-compact">
+        <div class="card card--contained card--green">
+          <div class="card-pad">
+            <span class="kicker-pill kicker-pill--dark">Streamy OS Developer Hub</span>
+            <h1 class="heading-1">Developer Documentation</h1>
+            <p class="body-text" style="max-width: 66ch">
+              Everything you need to run the <strong>Streamy OS</strong> stack locally, integrate with
+              <strong>Panorama Edge</strong> democratized ads, deploy our MIT dual-chain
+              <strong>USDC Payout Splitters</strong> (Solana + Ethereum/Base), or build on the Android
+              TV Leanback shell.
+            </p>
+            <div class="button-group">
+              <a class="btn btn--outline-dark" href="./panorama.html">Panorama Ad Architecture</a>
+              <a class="btn btn--solid-lime" href="./roadmap.html">Roadmap &amp; Status</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Developer Hub Card -->
+      <section class="band band--navy" aria-label="Developer Documentation Tabs">
+        <div class="card card--contained card--dark">
+          <div class="card-pad">
+            <div class="dev-tabs" role="tablist" aria-label="Documentation sections">
+              <button class="dev-tab dev-tab--active" role="tab" aria-selected="true" data-tab="quickstart">
+                Architecture &amp; Quickstart
+              </button>
+              <button class="dev-tab" role="tab" aria-selected="false" data-tab="api">
+                REST API Reference
+              </button>
+              <button class="dev-tab" role="tab" aria-selected="false" data-tab="contracts">
+                Dual-Chain USDC Splitters
+              </button>
+              <button class="dev-tab" role="tab" aria-selected="false" data-tab="android">
+                Android TV &amp; Hardware
+              </button>
+            </div>
+
+            <!-- TAB 1: Architecture & Quickstart -->
+            <div id="panel-quickstart" class="dev-panel dev-panel--active" role="tabpanel">
+              <h2 class="heading-2">Local Stack Quickstart</h2>
+              <p class="body-text">
+                Streamy OS is a Node.js 20+ monorepo paired with a native Kotlin Android TV Leanback shell
+                and MIT Solidity / Anchor payout splitter contracts. Boot all services and run the full
+                57-test suite locally in under a minute:
+              </p>
+
+              <div class="code-wrap">
+                <div class="code-header">
+                  <span>bash · streamy-os quickstart</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-quickstart">Copy</button>
+                </div>
+                <pre id="code-quickstart" class="code-block">npm install
+npm run dev:all           # Boots all 8 Streamy OS microservices (:5101–:5108)
+npm run dev:proof-stack   # Boots Panorama proof lane (:4010 / :4011)
+npm test                  # Runs all 57 workspace tests
+npm run test:shared       # Runs shared JWT auth &amp; security tests
+npm run smoke:e2e         # End-to-end playback + proof + settlement smoke</pre>
+              </div>
+
+              <h3 class="heading-4" style="margin-top: 1.5em">Service Port Map</h3>
+              <div class="api-table-wrap">
+                <table class="api-table">
+                  <thead>
+                    <tr>
+                      <th>Service</th>
+                      <th>Default Port</th>
+                      <th>Responsibility</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>channel-graph-api</code></td>
+                      <td><code>:5101</code></td>
+                      <td>Channel timelines, QR device pairing, Cast-to-TV, Continue Watching, Kid Mode PINs, Search, 24/7 FAST EPG</td>
+                    </tr>
+                    <tr>
+                      <td><code>media-indexer</code></td>
+                      <td><code>:5102</code></td>
+                      <td>Ingests uploads, likes, saves, and offline TV interaction queue replays</td>
+                    </tr>
+                    <tr>
+                      <td><code>panorama-edge</code></td>
+                      <td><code>:5103</code></td>
+                      <td>Ad decision waterfall, frequency capping, Ad Pod HUD + QR metadata, HMAC-signed telemetry</td>
+                    </tr>
+                    <tr>
+                      <td><code>payouts</code></td>
+                      <td><code>:5104</code></td>
+                      <td>Creator micro-USDC ledger, fraud-checked settlement batches, Solana &amp; EVM USDC disbursement</td>
+                    </tr>
+                    <tr>
+                      <td><code>trust-api</code></td>
+                      <td><code>:5105</code></td>
+                      <td>Moderation queue, fraud-hold status, and audit logging</td>
+                    </tr>
+                    <tr>
+                      <td><code>ugc-ads-api</code></td>
+                      <td><code>:5106</code></td>
+                      <td>Creator ad submission, moderation review, and publishing into Panorama Edge</td>
+                    </tr>
+                    <tr>
+                      <td><code>telemetry-api</code></td>
+                      <td><code>:5107</code></td>
+                      <td>Pilot SLO metrics ingestion and latency reporting</td>
+                    </tr>
+                    <tr>
+                      <td><code>comments-api</code></td>
+                      <td><code>:5108</code></td>
+                      <td>Comment Protocol thread binding, playback context, and embeddable threads</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB 2: REST API Reference -->
+            <div id="panel-api" class="dev-panel" role="tabpanel">
+              <h2 class="heading-2">Core Living-Room, Ad &amp; Payout Endpoints</h2>
+              <p class="body-text">
+                Mutating internal endpoints require either a scoped Bearer JWT
+                (<code>Authorization: Bearer &lt;token&gt;</code>) or <code>x-streamy-key</code>.
+              </p>
+
+              <div class="api-table-wrap">
+                <table class="api-table">
+                  <thead>
+                    <tr>
+                      <th>Domain</th>
+                      <th>Method</th>
+                      <th>Endpoint</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>TV Pairing</td>
+                      <td><span class="method-pill">POST</span></td>
+                      <td><code>/devices/pair/start</code></td>
+                      <td>Issues 6-char activation code + <code>verificationUriComplete</code> for QR display</td>
+                    </tr>
+                    <tr>
+                      <td>TV Pairing</td>
+                      <td><span class="method-pill">POST</span></td>
+                      <td><code>/devices/pair/confirm</code></td>
+                      <td>Confirms code from phone (<code>/activate</code>) and mints scoped 30d <code>tv-device</code> JWT</td>
+                    </tr>
+                    <tr>
+                      <td>TV Pairing</td>
+                      <td><span class="method-pill">GET</span></td>
+                      <td><code>/devices/pair/poll/:deviceCode</code></td>
+                      <td>TV polls until <code>approved</code> (returns <code>userId</code> + <code>deviceToken</code>)</td>
+                    </tr>
+                    <tr>
+                      <td>Cast-to-TV</td>
+                      <td><span class="method-pill">POST</span></td>
+                      <td><code>/devices/:deviceId/cast</code></td>
+                      <td>Queues a video + caption URI + resume timestamp from phone/web to paired TV</td>
+                    </tr>
+                    <tr>
+                      <td>Cast-to-TV</td>
+                      <td><span class="method-pill">GET</span></td>
+                      <td><code>/devices/:deviceId/cast/next</code></td>
+                      <td>TV consumes next FIFO cast command (delivered exactly once)</td>
+                    </tr>
+                    <tr>
+                      <td>Discovery</td>
+                      <td><span class="method-pill">GET</span></td>
+                      <td><code>/catalog/home/:userId</code></td>
+                      <td>Multi-row Tubi/Roku catalog filtered by parental rating (Continue Watching, FAST, Trending, Genres)</td>
+                    </tr>
+                    <tr>
+                      <td>Discovery</td>
+                      <td><span class="method-pill">GET</span></td>
+                      <td><code>/catalog/search?q=&amp;maxRating=</code></td>
+                      <td>Searches titles, creators, genres, and decentralized content hashes / CIDs</td>
+                    </tr>
+                    <tr>
+                      <td>FAST EPG</td>
+                      <td><span class="method-pill">GET</span></td>
+                      <td><code>/fast/epg</code></td>
+                      <td>Deterministic wall-clock 24/7 linear schedule (<code>nowPlaying.offsetSec</code> + <code>upNext</code>)</td>
+                    </tr>
+                    <tr>
+                      <td>Progress</td>
+                      <td><span class="method-pill">PUT</span></td>
+                      <td><code>/channels/:userId/progress/:videoId</code></td>
+                      <td>Saves playback position (auto-completes at &ge;95%) for cross-device Continue Watching</td>
+                    </tr>
+                    <tr>
+                      <td>Parental</td>
+                      <td><span class="method-pill">PUT</span></td>
+                      <td><code>/profiles/:userId/parental</code></td>
+                      <td>Sets <code>maxRating</code> (<code>TV-G</code>..<code>TV-MA</code>), <code>kidMode</code>, and scrypt-hashed PIN</td>
+                    </tr>
+                    <tr>
+                      <td>Panorama Ads</td>
+                      <td><span class="method-pill">POST</span></td>
+                      <td><code>/ads/decision</code></td>
+                      <td>Runs frequency-capped waterfall; returns <code>winner</code>, <code>pod</code>, <code>companionQr</code>, <code>decisionToken</code></td>
+                    </tr>
+                    <tr>
+                      <td>Panorama Ads</td>
+                      <td><span class="method-pill">POST</span></td>
+                      <td><code>/ads/events</code></td>
+                      <td>Accepts signed playback/impression events with replay deduplication</td>
+                    </tr>
+                    <tr>
+                      <td>USDC Payouts</td>
+                      <td><span class="method-pill">PUT</span></td>
+                      <td><code>/channels/:channelId/payout-destination</code></td>
+                      <td>Binds channel to <code>chainFamily: "solana" | "evm"</code> USDC wallet or MultiSplitter</td>
+                    </tr>
+                    <tr>
+                      <td>USDC Payouts</td>
+                      <td><span class="method-pill">GET</span></td>
+                      <td><code>/earnings/:channelId/summary</code></td>
+                      <td>Read-only TV-safe USDC summary (zero keys, zero RPC calls)</td>
+                    </tr>
+                    <tr>
+                      <td>USDC Payouts</td>
+                      <td><span class="method-pill">POST</span></td>
+                      <td><code>/settlements/run</code></td>
+                      <td>Checks <code>trust-api</code> fraud holds, computes integer 80/20 split, dispatches Solana/EVM USDC</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB 3: Dual-Chain USDC Splitters -->
+            <div id="panel-contracts" class="dev-panel" role="tabpanel">
+              <h2 class="heading-2">Dual-Chain MIT USDC Payout Splitters</h2>
+              <p class="body-text">
+                Streamy OS settles strictly in <strong>USDC (6 decimals)</strong> across both
+                <strong>Solana</strong> (native to Panorama Protocol with zero bridging) and
+                <strong>Ethereum / Base</strong>. Both implementations are clean-room MIT-licensed
+                Constant-Time Splitters (<code>O(1)</code> deposits &amp; withdrawals) with remainder-preserving
+                accounting that eliminates dust-griefing.
+              </p>
+
+              <div class="two-col" style="margin-top: 1em">
+                <div class="glass-subcard">
+                  <h3 class="heading-4">Solana · SPL USDC (Anchor 0.30.1)</h3>
+                  <p class="body-text">
+                    Path: <code>contracts/payout-splitter-solana/</code><br />
+                    Uses a single PDA-owned standard SPL USDC vault (no Token-2022 transfer hooks),
+                    checked <code>u128</code> math (<code>1e18</code> RPS scale), and two-step Squads
+                    multisig admin transfer.
+                  </p>
+                  <ul class="body-text" style="padding-left: 1.2em; margin-top: 0.5em">
+                    <li>Mainnet USDC: <code>EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v</code></li>
+                    <li>Devnet USDC: <code>4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU</code></li>
+                  </ul>
+                </div>
+
+                <div class="glass-subcard">
+                  <h3 class="heading-4">Ethereum &amp; Base · ERC20 USDC (Solidity 0.8.27)</h3>
+                  <p class="body-text">
+                    Path: <code>contracts/payout-splitter/</code><br />
+                    <code>StreamyAdminSplitter</code>, <code>StreamyERC20Splitter</code>, and EIP-1167
+                    <code>StreamySplitterFactory</code>. Verified by 6/6 Cancun EVM audit tests (<code>1e30</code>
+                    scale, <code>SafeERC20</code>, <code>ReentrancyGuard</code>, EIP-712
+                    <code>setSharesMultiMeta</code>).
+                  </p>
+                  <ul class="body-text" style="padding-left: 1.2em; margin-top: 0.5em">
+                    <li>Ethereum USDC (<code>1</code>): <code>0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48</code></li>
+                    <li>Base USDC (<code>8453</code>): <code>0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913</code></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="code-wrap">
+                <div class="code-header">
+                  <span>bash · verify &amp; deploy splitters</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-contracts">Copy</button>
+                </div>
+                <pre id="code-contracts" class="code-block"># Run Solidity 0.8.27 Cancun EVM audit regression tests (6/6 passing)
+cd contracts/payout-splitter &amp;&amp; npm install &amp;&amp; npm test
+
+# Deploy EVM factory + 80/20 protocol USDC splitter (set SPLITTER_OWNER_ADDRESS to your Gnosis Safe)
+npm run deploy:base-sepolia
+npm run deploy:base
+
+# Build &amp; deploy Solana SPL USDC splitter (transfer upgrade authority to Squads multisig)
+cd ../payout-splitter-solana
+anchor build &amp;&amp; anchor keys sync &amp;&amp; anchor build
+anchor deploy --provider.cluster mainnet</pre>
+              </div>
+            </div>
+
+            <!-- TAB 4: Android TV & Hardware -->
+            <div id="panel-android" class="dev-panel" role="tabpanel">
+              <h2 class="heading-2">Android TV Shell &amp; Hardware Security Model</h2>
+              <p class="body-text">
+                <code>apps/streamy-tv-shell/android-tv</code> is a native Kotlin Leanback launcher powered
+                by Media3 ExoPlayer. By design, the streaming stick <strong>never stores wallet private
+                keys, RPC endpoints, or transaction signing code</strong>. Creators manage dual-chain USDC
+                splits and claims on <code>streamy.rocks/dashboard/revenue</code>, while the stick only
+                displays read-only summaries via <code>PayoutSummaryClient.kt</code>.
+              </p>
+
+              <div class="code-wrap">
+                <div class="code-header">
+                  <span>bash · build &amp; install Android TV debug APK</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-android">Copy</button>
+                </div>
+                <pre id="code-android" class="code-block">cd apps/streamy-tv-shell/android-tv
+./gradlew :app:assembleDebug \
+  -PSTREAMY_DEBUG_GRAPH_URL="http://10.0.2.2:5101" \
+  -PSTREAMY_DEBUG_EDGE_URL="http://10.0.2.2:5103" \
+  -PSTREAMY_DEBUG_PAYOUTS_URL="http://10.0.2.2:5104"
+./gradlew :app:installDebug</pre>
+              </div>
+
+              <div class="two-col">
+                <div class="glass-subcard">
+                  <h3 class="heading-4">Shipped TV Modules</h3>
+                  <p class="body-text">
+                    <code>HomeBrowseFragment.kt</code> (multi-row catalog + Cast poller + idle screensaver),
+                    <code>PairingActivity.kt</code> (QR activation), <code>SearchActivity.kt</code>
+                    (Leanback search), <code>PlayerActivity.kt</code> (WebVTT CC toggle, resume &amp; 10s
+                    autosave, Ad Pod HUD, Up Next countdown), and <code>PayoutSummaryClient.kt</code>.
+                  </p>
+                </div>
+                <div class="glass-subcard">
+                  <h3 class="heading-4">Release &amp; FCC Bring-Up Rules</h3>
+                  <p class="body-text">
+                    Release APKs strip master service keys (<code>PANORAMA_EDGE_SERVICE_KEY=""</code>) and
+                    authenticate via per-device JWTs minted during QR pairing. WebVTT Closed Captions
+                    (<code>C.TRACK_TYPE_TEXT</code>) ship enabled by default for FCC CVAA readiness.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span>&copy; Streamy.Rocks &middot; Decentralized Living-Room Streaming</span>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./roadmap.html">Roadmap</a>
+          <a href="./panorama.html">Panorama Ads</a>
+          <a href="./developers.html">Developer Docs</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const tabs = document.querySelectorAll(".dev-tab");
+        const panels = document.querySelectorAll(".dev-panel");
+
+        tabs.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const target = btn.getAttribute("data-tab");
+            tabs.forEach((t) => {
+              const active = t === btn;
+              t.classList.toggle("dev-tab--active", active);
+              t.setAttribute("aria-selected", active ? "true" : "false");
+            });
+            panels.forEach((p) => {
+              p.classList.toggle("dev-panel--active", p.id === "panel-" + target);
+            });
+          });
+        });
+
+        document.querySelectorAll(".copy-btn").forEach((btn) => {
+          btn.addEventListener("click", async () => {
+            const id = btn.getAttribute("data-copy-target");
+            const el = id ? document.getElementById(id) : null;
+            if (!el) return;
+            try {
+              await navigator.clipboard.writeText(el.textContent || "");
+              const prev = btn.textContent;
+              btn.textContent = "Copied!";
+              setTimeout(() => {
+                btn.textContent = prev;
+              }, 1400);
+            } catch (_err) {
+              btn.textContent = "Select & Copy";
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

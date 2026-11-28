@@ -1,6 +1,13 @@
 # streamy.rocks
 
-Self-hosted static build of the **Streamy.Rocks** landing page, deployed directly on **GitHub Pages** with zero third-party site builder dependencies.
+Self-hosted multi-page static build of **Streamy.Rocks**, deployed directly on **GitHub Pages** with zero third-party site builder dependencies.
+
+## Pages
+
+- `index.html` — Main landing page, current Streamy OS status, and HDMI stick FCC progress
+- `roadmap.html` — Current engineering status, 4-phase roadmap, and hardware launch readiness
+- `panorama.html` — Panorama Protocol integration for democratized video ads across Streamy
+- `developers.html` — Interactive Developer Hub (Architecture & Quickstart, REST API Reference, Dual-Chain USDC Splitters, Android TV & Hardware)
 
 ## Hosting & Custom Domain (GitHub Pages)
 

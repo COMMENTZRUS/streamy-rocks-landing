@@ -3,26 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Streamy.Rocks — Your videos Flow from Decentralized Storage</title>
+    <title>Streamy.Rocks — Decentralized Living-Room Video &amp; Democratized Ads</title>
     <meta
       name="description"
-      content="Dive into the future of video streaming with streamy.rocks! Decentralize your home theater with content straight from decentralized storage to your TV."
+      content="Streamy.Rocks brings decentralized video storage, 24/7 creator FAST channels, democratized Panorama ads, and dual-chain USDC payouts straight to your TV."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://streamy.rocks/" />
-    <meta property="og:title" content="Streamy.Rocks — Your videos Flow from Decentralized Storage" />
+    <meta property="og:title" content="Streamy.Rocks — Decentralized Living-Room Video &amp; Democratized Ads" />
     <meta
       property="og:description"
-      content="Dive into the future of video streaming with streamy.rocks! Decentralize your home theater with content straight from decentralized storage to your TV."
+      content="Decentralize your home theater with Streamy OS, Panorama Proof-of-Impression ads, and instant dual-chain USDC creator splits."
     />
     <meta property="og:image" content="https://streamy.rocks/assets/images/og-social.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Streamy.Rocks — Your videos Flow from Decentralized Storage" />
-    <meta
-      name="twitter:description"
-      content="Dive into the future of video streaming with streamy.rocks! Decentralize your home theater with content straight from decentralized storage to your TV."
-    />
-    <meta name="twitter:image" content="https://streamy.rocks/assets/images/og-social.jpg" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,32 +27,42 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <!-- Fixed ambient theme background shown through translucent glass bands -->
     <div class="site-bg" aria-hidden="true"></div>
 
+    <header class="site-nav">
+      <div class="site-nav-inner">
+        <a class="site-brand" href="./index.html">
+          <img src="./favicon.svg" alt="" width="28" height="28" />
+          <span>Streamy.Rocks</span>
+        </a>
+        <nav class="site-nav-links" aria-label="Primary navigation">
+          <a class="nav-link nav-link--active" href="./index.html">Home</a>
+          <a class="nav-link" href="./roadmap.html">Roadmap</a>
+          <a class="nav-link" href="./panorama.html">Panorama Ads</a>
+          <a class="nav-link" href="./developers.html">Developer Docs</a>
+          <a class="nav-cta" href="#preorder">Hardware Status</a>
+        </nav>
+      </div>
+    </header>
+
     <main class="page">
-      <!-- Section 1: Hero -->
+      <!-- Band 1: Hero (exact Alien Glass split card over forest-stream.jpg) -->
       <section class="band band--hero" aria-label="Streamy.Rocks Hero">
         <div class="card card--contained card--green hero-card">
           <div class="hero-copy">
+            <span class="kicker-pill kicker-pill--dark">Streamy OS · FCC Certification In Progress</span>
             <h1 class="heading-1">
-              Streamy.Rocks<br /><br />Your videos Flow from Decentralized Storage
+              Streamy.Rocks<br /><br />Your videos flow from decentralized storage
             </h1>
             <p class="body-text">
-              Dive into the future of video streaming with streamy.rocks!<br />
-              decentralize your home theater with content<br />
-              straight from decentralized storage to your TV
+              Decentralize your home theater with content straight from open storage to your TV—powered by
+              <strong>Streamy OS</strong>, democratized <strong>Panorama Protocol</strong> ads, and instant
+              <strong>Solana &amp; Ethereum/Base USDC</strong> creator payouts.
             </p>
             <div class="button-group">
-              <a
-                class="btn btn--outline-dark"
-                href="https://ethereumfilm.xyz/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Start Streaming
-              </a>
-              <a class="btn btn--solid-lime" href="#preorder">Pre-Order</a>
+              <a class="btn btn--outline-dark" href="./panorama.html">Panorama Ads</a>
+              <a class="btn btn--solid-lime" href="./roadmap.html">Where We Are</a>
+              <a class="btn btn--outline-dark" href="./developers.html">Developer Docs</a>
             </div>
           </div>
 
@@ -75,37 +79,39 @@
         </div>
       </section>
 
-      <!-- Section 2: The Future of Streaming is Decentralized -->
+      <!-- Band 2: Where We Are Today (full-bleed frosted green glass) -->
       <section class="band band--full band--green" aria-labelledby="future-heading">
         <div class="band-inner">
           <h2 id="future-heading" class="heading-1">The Future of Streaming is Decentralized</h2>
           <div class="two-col">
             <div class="two-col-cell">
-              <h3 class="heading-4 heading-4--ink">Why Decentralized Video ?</h3>
+              <h3 class="heading-4 heading-4--ink">Where Streamy Is Today</h3>
               <p class="body-text">
-                Supporting decentralized video platforms helps protect creator independence and ensures content remains
-                free from centralized control, giving viewers and creators more freedom in how they share and consume
-                media
+                Our core software stack is built and tested end-to-end: the Android TV / AOSP Leanback launcher
+                features multi-row discovery, 24/7 linear FAST channels with a live EPG, QR device pairing,
+                Cast-from-Phone, Continue Watching, Closed Captions (FCC CVAA ready), Parental PIN controls,
+                and an ambient living-room screensaver.
               </p>
             </div>
-            <div class="two-col-cell two-col-cell--offset">
+            <div class="two-col-cell">
+              <h3 class="heading-4 heading-4--ink">Hardware, FCC &amp; Open Economics</h3>
               <p class="body-text">
-                We get it, change is scary. but so is running out of popcorn during the Etheruem Film . Take the plunge
-                and join the thousands of happy streamers who&#39;ve already upgraded their home theater to run on
-                decentralized rails
+                While our custom HDMI streaming stick moves through FCC regulatory certification, we are
+                hardening every backend service and smart contract—including our audited MIT dual-chain USDC
+                splitters on Solana and Ethereum/Base and our Panorama Proof-of-Impression ad stack.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Section 3: How Streamy Works -->
-      <section class="band band--full band--dark band--how" aria-labelledby="how-heading">
+      <!-- Band 3: How Streamy Works (dark glass + how-it-works-bg.png + vertical timeline) -->
+      <section class="band band--full band--dark" aria-labelledby="how-heading">
         <div class="band-bg-image band-bg-image--how" aria-hidden="true"></div>
         <div class="band-bg-mask band-bg-mask--dark" aria-hidden="true"></div>
         <div class="band-inner band-inner--front">
           <h2 id="how-heading" class="heading-1">
-            How Streamy Works:<br />It&#39;s Not Rocket Science
+            How Streamy Works:<br />From Open Storage to Your TV
           </h2>
 
           <ol class="timeline">
@@ -115,10 +121,10 @@
                 <span class="timeline-connector"></span>
               </div>
               <div class="timeline-body">
-                <h3 class="heading-4">Upload and Share Token Gated Video Files</h3>
+                <h3 class="heading-4">Upload, Token-Gate &amp; Run 24/7 FAST Channels</h3>
                 <p class="body-text">
-                  Streamy video content gets chopped up in a zillion pieces , and distributed across the network faster
-                  than you can say &ldquo;decentralized&rdquo;
+                  Creators publish VOD libraries, content-addressed hashes, WebVTT captions, and always-on
+                  linear FAST schedules without centralized gatekeepers deciding who gets distribution.
                 </p>
               </div>
             </li>
@@ -129,10 +135,11 @@
                 <span class="timeline-connector"></span>
               </div>
               <div class="timeline-body">
-                <h3 class="heading-4">Find Videos by Hash</h3>
+                <h3 class="heading-4">Democratized Ads via Panorama Protocol</h3>
                 <p class="body-text">
-                  When you hit play, streamy.rocks assembles the bits and pieces back together like a digital jigsaw
-                  puzzle
+                  Streamy pairs directly with Panorama&#39;s Proof-of-Impression pipeline, frequency-capped
+                  waterfall (creator manifests, UGC ads, auction, VAST fallback), and Second-Screen QR offers—no
+                  creepy cross-device tracking or opaque middlemen.
                 </p>
               </div>
             </li>
@@ -143,9 +150,12 @@
                 <span class="timeline-connector"></span>
               </div>
               <div class="timeline-body">
-                <h3 class="heading-4">Stream and Enjoy</h3>
+                <h3 class="heading-4">Instant Dual-Chain USDC Payout Splits</h3>
                 <p class="body-text">
-                  Sit back and watch as your video flows directly from creator to viewer
+                  Verified ad revenue settles in <strong>USDC</strong> straight into solo creator wallets or
+                  constant-time <code>O(1)</code> collaborator splitters on <strong>Solana</strong> or
+                  <strong>Ethereum / Base</strong>—while the TV stick stays 100% read-only with zero keys on
+                  hardware.
                 </p>
               </div>
             </li>
@@ -153,24 +163,25 @@
         </div>
       </section>
 
-      <!-- Section 4: What Our Users Are Saying -->
+      <!-- Band 4: Community Voices (navy + dark glass + exact 3 portrait cards) -->
       <section class="band band--navy" aria-labelledby="testimonials-heading">
         <div class="card card--contained card--dark">
           <div class="card-pad">
-            <h2 id="testimonials-heading" class="heading-1">What Our Users Are Saying</h2>
+            <h2 id="testimonials-heading" class="heading-1">Built for Creators, Viewers &amp; Builders</h2>
             <div class="testimonials-grid">
               <article class="testimonial-card">
                 <div class="testimonial-media">
                   <img
                     src="./assets/images/testimonial-sarah.png"
-                    alt="Sarah, Documentary Enthusiast"
+                    alt="Sarah, Documentary Filmmaker"
                     loading="lazy"
                   />
                 </div>
                 <div class="testimonial-copy">
-                  <h3 class="heading-4">Sarah, Documentary Enthusiast</h3>
+                  <h3 class="heading-4">Sarah, Documentary Filmmaker</h3>
                   <p class="body-text">
-                    &ldquo;streamy.rocks enables immediate global distribution for documentary filmmakers &rdquo;
+                    &ldquo;Streamy.rocks enables immediate living-room distribution for indie documentaries—and
+                    our whole production crew splits USDC ad revenue automatically.&rdquo;
                   </p>
                 </div>
               </article>
@@ -179,15 +190,15 @@
                 <div class="testimonial-media">
                   <img
                     src="./assets/images/testimonial-tim.png"
-                    alt="Tim, Tech Guru"
+                    alt="Tim, Systems Engineer"
                     loading="lazy"
                   />
                 </div>
                 <div class="testimonial-copy">
-                  <h3 class="heading-4">Tim, Tech Guru</h3>
+                  <h3 class="heading-4">Tim, Systems Engineer</h3>
                   <p class="body-text">
-                    &ldquo;Finally, a streaming service that doesn&#39;t make me want to throw my router out the
-                    window.&rdquo;
+                    &ldquo;QR pairing, Cast-from-Phone, and 24/7 FAST channels on open Android TV rails—without
+                    putting private keys anywhere near the living-room stick.&rdquo;
                   </p>
                 </div>
               </article>
@@ -196,14 +207,15 @@
                 <div class="testimonial-media">
                   <img
                     src="./assets/images/testimonial-kevin.png"
-                    alt="Kevin, Gamer Extraordinaire"
+                    alt="Kevin, Gaming Creator"
                     loading="lazy"
                   />
                 </div>
                 <div class="testimonial-copy">
-                  <h3 class="heading-4">Kevin, Gamer Extraordinaire</h3>
+                  <h3 class="heading-4">Kevin, Gaming Creator</h3>
                   <p class="body-text">
-                    &ldquo;My gaming stream is so smooth on Streamy, I can&#39;t sense any lag&rdquo;
+                    &ldquo;Democratized Panorama ads mean my community and sponsors can run real living-room
+                    TV spots with verified impressions and transparent payouts.&rdquo;
                   </p>
                 </div>
               </article>
@@ -212,35 +224,29 @@
         </div>
       </section>
 
-      <!-- Section 5: Streamy.Rocks Manifesto -->
+      <!-- Band 5: Manifesto (dark forest-stream.jpg) -->
       <section class="band band--full band--dark band--manifesto" aria-labelledby="manifesto-heading">
         <div class="band-bg-image band-bg-image--forest" aria-hidden="true"></div>
         <div class="band-bg-mask band-bg-mask--black" aria-hidden="true"></div>
         <div class="band-inner band-inner--md band-inner--front">
-          <h2 id="manifesto-heading" class="heading-1">Streamy.Rocks</h2>
+          <h2 id="manifesto-heading" class="heading-1">Democratized Ads. Creator-Owned TV.</h2>
           <p class="body-text">
-            should algorithms decide who gets to see what? imagine a world where your favorite creators can share their
-            content direct to consumers home television sets , without centralized streaming services
+            Should black-box algorithms and ad-tech monopolies decide who gets seen—and take half the
+            revenue? Streamy × Panorama puts cryptographic proof-of-impression, open UGC advertising, and
+            direct-to-TV creator channels into everyone&#39;s living room.
           </p>
           <div class="button-group">
-            <a
-              class="btn btn--outline-mint"
-              href="https://ethereumfilm.xyz/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Start Streaming
-            </a>
-            <a class="btn btn--solid-mint" href="#preorder">Pre-Order</a>
+            <a class="btn btn--outline-mint" href="./panorama.html">Explore Panorama Integration</a>
+            <a class="btn btn--solid-mint" href="./developers.html">Read Developer Docs</a>
           </div>
         </div>
       </section>
 
-      <!-- Section 6: The Streamy.Rocks Setup -->
+      <!-- Band 6: Staircase Setup (navy + dark glass + 4 olive-green ascending bars) -->
       <section class="band band--navy" aria-labelledby="setup-heading">
         <div class="card card--contained card--dark">
           <div class="card-pad">
-            <h2 id="setup-heading" class="heading-1">The Streamy.Rocks Setup:</h2>
+            <h2 id="setup-heading" class="heading-1">The Streamy.Rocks Experience:</h2>
 
             <div class="staircase">
               <div class="staircase-bars" aria-hidden="true">
@@ -253,19 +259,19 @@
               <ol class="staircase-steps">
                 <li class="staircase-step">
                   <span class="step-badge step-badge--md" aria-hidden="true">1</span>
-                  <h3 class="heading-4">Sign Up</h3>
+                  <h3 class="heading-4">Plug In &amp; Pair via QR Code (streamy.rocks/activate)</h3>
                 </li>
                 <li class="staircase-step">
                   <span class="step-badge step-badge--md" aria-hidden="true">2</span>
-                  <h3 class="heading-4">Run Streamy</h3>
+                  <h3 class="heading-4">Watch VOD, 24/7 FAST Channels &amp; Cast from Phone</h3>
                 </li>
                 <li class="staircase-step">
                   <span class="step-badge step-badge--md" aria-hidden="true">3</span>
-                  <h3 class="heading-4">Stream</h3>
+                  <h3 class="heading-4">Monetize with Verifiable Panorama Protocol Ads</h3>
                 </li>
                 <li class="staircase-step">
                   <span class="step-badge step-badge--md" aria-hidden="true">4</span>
-                  <h3 class="heading-4">Enjoy</h3>
+                  <h3 class="heading-4">Claim Instant USDC Splits on Solana or Ethereum/Base</h3>
                 </li>
               </ol>
             </div>
@@ -273,22 +279,61 @@
         </div>
       </section>
 
-      <!-- Section 7: Ready to Rock with Streamy? / Pre-Order -->
+      <!-- Band 7: Bottom Status & Pre-Order (full-bleed frosted green glass) -->
       <section id="preorder" class="band band--full band--green" aria-labelledby="preorder-heading">
         <div class="band-inner">
           <h2 id="preorder-heading" class="heading-1">Ready to Rock with Streamy?</h2>
           <div class="two-col">
             <div class="two-col-cell">
-              <h3 class="heading-4">join the decentralized video movement</h3>
+              <h3 class="heading-4 heading-4--ink">Join the decentralized living-room movement</h3>
               <p class="body-text">
-                Shipping Spring 2025<br />
-                Pre Order here
+                Our Streamy HDMI streaming stick is currently progressing through FCC certification while
+                Streamy OS, Panorama democratized ads, and dual-chain USDC payout splitters are live in
+                staging and ready for creator pilots.
               </p>
+              <div class="button-group">
+                <a class="btn btn--outline-dark" href="./roadmap.html">View Full Roadmap</a>
+                <a class="btn btn--solid-lime" href="./developers.html">Build on Streamy OS</a>
+              </div>
             </div>
-            <div class="two-col-cell" aria-hidden="true"></div>
+            <div class="two-col-cell">
+              <div class="glass-subcard glass-subcard--on-green">
+                <h3 class="heading-4 heading-4--ink" style="margin-bottom: 0.4em">Live Platform Snapshot</h3>
+                <ul class="metric-list">
+                  <li class="metric-item">
+                    <span>Streamy OS Microservices</span>
+                    <strong>57/57 Tests Passing</strong>
+                  </li>
+                  <li class="metric-item">
+                    <span>Dual-Chain USDC Splitters</span>
+                    <strong>Solana + ETH / Base (MIT)</strong>
+                  </li>
+                  <li class="metric-item">
+                    <span>Democratized Ad Network</span>
+                    <strong>Panorama PoI + UGC Waterfall</strong>
+                  </li>
+                  <li class="metric-item">
+                    <span>HDMI Stick Hardware</span>
+                    <strong>FCC Approval In Progress</strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span>&copy; Streamy.Rocks &middot; Decentralized Living-Room Streaming</span>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./roadmap.html">Roadmap</a>
+          <a href="./panorama.html">Panorama Ads</a>
+          <a href="./developers.html">Developer Docs</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panorama Protocol × Streamy — Democratized Video Ads</title>
+    <meta
+      name="description"
+      content="How Streamy integrates with Panorama Protocol to deliver democratized, cryptographically verified, privacy-respecting advertising across living-room video."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-bg" aria-hidden="true"></div>
+
+    <header class="site-nav">
+      <div class="site-nav-inner">
+        <a class="site-brand" href="./index.html">
+          <img src="./favicon.svg" alt="" width="28" height="28" />
+          <span>Streamy.Rocks</span>
+        </a>
+        <nav class="site-nav-links" aria-label="Primary navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./roadmap.html">Roadmap</a>
+          <a class="nav-link nav-link--active" href="./panorama.html">Panorama Ads</a>
+          <a class="nav-link" href="./developers.html">Developer Docs</a>
+          <a class="nav-cta" href="./index.html#preorder">Hardware Status</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <!-- Hero -->
+      <section class="band band--hero band--hero-compact">
+        <div class="card card--contained card--green">
+          <div class="card-pad">
+            <span class="kicker-pill kicker-pill--dark">Streamy × Panorama Protocol</span>
+            <h1 class="heading-1">Democratized Ads Across the Streamy Video Platform</h1>
+            <p class="body-text" style="max-width: 66ch">
+              Legacy Connected TV ad networks lock out independent creators, take up to 50% in opaque
+              ad-tech taxes, and fund bot-farm impressions. By integrating <strong>Panorama Protocol</strong>
+              natively into Streamy OS, any creator can monetize living-room video and any brand or
+              community can buy cryptographically verified TV impressions—settled transparently in USDC.
+            </p>
+            <div class="button-group">
+              <a class="btn btn--outline-dark" href="#ad-flow">How the Proof Loop Works</a>
+              <a class="btn btn--solid-lime" href="./developers.html">Panorama Edge API Docs</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Democratized Ads -->
+      <section class="band band--full band--green" aria-labelledby="why-panorama-heading">
+        <div class="band-inner">
+          <h2 id="why-panorama-heading" class="heading-1">Open Ad Economics for Creators, Brands &amp; Viewers</h2>
+          <div class="two-col">
+            <div class="two-col-cell">
+              <h3 class="heading-4 heading-4--ink">For Creators &amp; Channel Operators</h3>
+              <p class="body-text">
+                Monetize from your very first VOD upload or 24/7 FAST channel—no arbitrary watch-hour
+                gatekeeping. Creators can run direct sponsor manifests, opt into Panorama marketplace
+                demand, or submit moderated <strong>UGC creator ads</strong>, with earnings split
+                automatically among co-creators in <strong>Solana SPL USDC</strong> or
+                <strong>Ethereum/Base ERC20 USDC</strong>.
+              </p>
+            </div>
+            <div class="two-col-cell">
+              <h3 class="heading-4 heading-4--ink">For Advertisers &amp; Local Businesses</h3>
+              <p class="body-text">
+                Pay only for real, cryptographically attested living-room playback—not bot traffic.
+                Panorama&#39;s Proof-of-Impression (PoI) pipeline verifies quartile and completion
+                milestones, enforces per-viewer frequency caps so ads stay respectful, and attaches
+                interactive <strong>Second-Screen QR offers</strong> directly on the TV HUD.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- End-to-End Integration Architecture Timeline -->
+      <section id="ad-flow" class="band band--full band--dark" aria-labelledby="flow-heading">
+        <div class="band-bg-image band-bg-image--how" aria-hidden="true"></div>
+        <div class="band-bg-mask band-bg-mask--dark" aria-hidden="true"></div>
+        <div class="band-inner band-inner--front">
+          <h2 id="flow-heading" class="heading-1">How Streamy × Panorama Works End-to-End</h2>
+
+          <div class="flow-strip" aria-label="Panorama integration pipeline">
+            <div class="flow-node">
+              <div class="flow-node-step">Step 1 · Edge</div>
+              <div class="flow-node-title">Panorama Edge</div>
+              <p class="flow-node-desc">Waterfall decision, frequency cap, signed decisionToken &amp; QR offer</p>
+            </div>
+            <div class="flow-node">
+              <div class="flow-node-step">Step 2 · TV</div>
+              <div class="flow-node-title">Media3 ExoPlayer</div>
+              <p class="flow-node-desc">Ad Pod HUD, skip policy, durable offline event queue</p>
+            </div>
+            <div class="flow-node">
+              <div class="flow-node-step">Step 3 · Proof</div>
+              <div class="flow-node-title">PoI Verifier</div>
+              <p class="flow-node-desc">RISC Zero / signed proof check unlocks settlement intent</p>
+            </div>
+            <div class="flow-node">
+              <div class="flow-node-step">Step 4 · Payout</div>
+              <div class="flow-node-title">Dual-Chain USDC</div>
+              <p class="flow-node-desc">Trust fraud-hold check → Solana or ETH/Base MultiSplitter</p>
+            </div>
+          </div>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">1</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">100%-Fill Ad Waterfall &amp; Frequency Capping (<code>services/panorama-edge</code>)</h3>
+                <p class="body-text">
+                  Every preroll, midroll, or postroll slot runs through a deterministic waterfall:
+                  <strong>Creator Manifest → Moderated UGC Ads → Panorama Auction → VAST/VMAP Fallback →
+                  Streamy House Promo</strong>. Per-viewer hourly frequency caps prevent ad fatigue, and
+                  every decision returns a signed <code>decisionToken</code>, Ad Pod countdown metadata,
+                  and a Second-Screen QR URL.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">2</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">Signed Playback Telemetry &amp; Proof-of-Impression (<code>panorama-proof-worker</code>)</h3>
+                <p class="body-text">
+                  <code>PanoramaPlaybackOrchestrator</code> on Android TV tracks <code>start</code>,
+                  <code>quartile</code>, and <code>complete</code> milestones with durable local queue
+                  persistence for spotty Wi-Fi. Events are HMAC-signed at the edge and verified by
+                  Panorama&#39;s prover/verifier lane before any payout intent becomes settleable.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">3</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">Trust &amp; Anti-Fraud Gate (<code>services/settlement-bridge</code> + <code>services/trust-api</code>)</h3>
+                <p class="body-text">
+                  Client TV devices can never spoof a payout destination: <code>settlement-bridge</code>
+                  resolves the authoritative <code>channelId</code> server-side and checks
+                  <code>trust-api</code> for active <code>fraudHold</code> flags before recording pending
+                  micro-USDC accruals.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">4</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">Native Solana &amp; EVM USDC MultiSplitter Settlement (<code>services/payouts</code>)</h3>
+                <p class="body-text">
+                  Because Panorama Market runs natively on Solana (SVM), Streamy settles directly in
+                  <strong>Solana SPL USDC</strong> with zero cross-chain bridge—or routes to
+                  <strong>Ethereum / Base ERC20 USDC</strong> for EVM creators. Co-creators and channel
+                  teams claim their exact proportional share in <code>O(1)</code> constant time.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Comparison Grid -->
+      <section class="band band--navy" aria-labelledby="compare-heading">
+        <div class="card card--contained card--dark">
+          <div class="card-pad">
+            <h2 id="compare-heading" class="heading-1">Legacy CTV Ad-Tech vs. Streamy × Panorama</h2>
+            <div class="three-col">
+              <div class="glass-subcard">
+                <h3 class="heading-4">Verifiable Impressions</h3>
+                <p class="body-text">
+                  <strong>Legacy CTV:</strong> Self-reported CSVs plagued by spoofed SSAI and bot views.
+                </p>
+                <p class="body-text">
+                  <strong>Streamy × Panorama:</strong> Cryptographic Proof-of-Impression + signed
+                  <code>decisionToken</code> replay protection before settlement.
+                </p>
+              </div>
+
+              <div class="glass-subcard">
+                <h3 class="heading-4">Open UGC &amp; Sponsor Access</h3>
+                <p class="body-text">
+                  <strong>Legacy CTV:</strong> $25k+ minimums and walled-garden DSP contracts lock out
+                  indie brands.
+                </p>
+                <p class="body-text">
+                  <strong>Streamy × Panorama:</strong> Creators and community sponsors submit moderated UGC
+                  video ads directly into the living-room auction.
+                </p>
+              </div>
+
+              <div class="glass-subcard">
+                <h3 class="heading-4">Instant USDC Splits</h3>
+                <p class="body-text">
+                  <strong>Legacy CTV:</strong> Net-60/90 wire transfers, opaque rev-share deductions, and
+                  manual team accounting.
+                </p>
+                <p class="body-text">
+                  <strong>Streamy × Panorama:</strong> Exact integer micro-USDC batches routed to solo
+                  wallets or constant-time MIT MultiSplitters on Solana &amp; ETH/Base.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Manifesto CTA -->
+      <section class="band band--full band--dark band--manifesto">
+        <div class="band-bg-image band-bg-image--forest" aria-hidden="true"></div>
+        <div class="band-bg-mask band-bg-mask--black" aria-hidden="true"></div>
+        <div class="band-inner band-inner--md band-inner--front">
+          <h2 class="heading-1">Build With Streamy × Panorama</h2>
+          <p class="body-text">
+            Inspect the Panorama Edge endpoints, Proof-of-Impression schemas, and dual-chain USDC splitter
+            contracts in our Developer Docs.
+          </p>
+          <div class="button-group">
+            <a class="btn btn--solid-mint" href="./developers.html">Open Developer Docs</a>
+            <a class="btn btn--outline-mint" href="./roadmap.html">View Launch Roadmap</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span>&copy; Streamy.Rocks &middot; Decentralized Living-Room Streaming</span>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./roadmap.html">Roadmap</a>
+          <a href="./panorama.html">Panorama Ads</a>
+          <a href="./developers.html">Developer Docs</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

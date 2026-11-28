@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Roadmap &amp; Current Progress — Streamy.Rocks</title>
+    <meta
+      name="description"
+      content="Where Streamy.Rocks stands today: shipped Streamy OS services, Android TV launcher, dual-chain USDC splitters, FCC hardware certification, and upcoming launch phases."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-bg" aria-hidden="true"></div>
+
+    <header class="site-nav">
+      <div class="site-nav-inner">
+        <a class="site-brand" href="./index.html">
+          <img src="./favicon.svg" alt="" width="28" height="28" />
+          <span>Streamy.Rocks</span>
+        </a>
+        <nav class="site-nav-links" aria-label="Primary navigation">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link nav-link--active" href="./roadmap.html">Roadmap</a>
+          <a class="nav-link" href="./panorama.html">Panorama Ads</a>
+          <a class="nav-link" href="./developers.html">Developer Docs</a>
+          <a class="nav-cta" href="./index.html#preorder">Hardware Status</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <!-- Hero -->
+      <section class="band band--hero band--hero-compact">
+        <div class="card card--contained card--green">
+          <div class="card-pad">
+            <span class="kicker-pill kicker-pill--dark">Engineering &amp; Hardware Progress</span>
+            <h1 class="heading-1">Where We Are &amp; The Streamy Roadmap</h1>
+            <p class="body-text" style="max-width: 64ch">
+              While the Streamy HDMI stick completes FCC certification, we have shipped the full
+              living-room software stack—from Android TV discovery and 24/7 FAST channels to Panorama
+              Proof-of-Impression ads and dual-chain USDC payout splitters.
+            </p>
+            <div class="button-group">
+              <a class="btn btn--outline-dark" href="./panorama.html">See Panorama Integration</a>
+              <a class="btn btn--solid-lime" href="./developers.html">Explore Developer Docs</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Current Status Breakdown -->
+      <section class="band band--full band--green" aria-labelledby="status-heading">
+        <div class="band-inner">
+          <h2 id="status-heading" class="heading-1">Where Streamy Stands Today</h2>
+          <div class="two-col">
+            <div class="glass-subcard glass-subcard--on-green">
+              <h3 class="heading-4 heading-4--ink">
+                Streamy OS Backend &amp; Living-Room APIs
+                <span class="status-badge status-badge--ink">Built &amp; Tested</span>
+              </h3>
+              <p class="body-text">
+                9 Node.js microservices passing 57/57 automated tests: Channel Graph, Media Indexer,
+                Panorama Edge, Proof Worker, Verifier API, Dual-Chain Payouts, Trust &amp; Fraud Holds,
+                UGC Ads, Telemetry, and Comments Protocol bridge. Includes QR device pairing with scoped
+                device JWTs, Cast-from-Phone, Continue Watching, Kid Mode PINs, CID search, and 24/7 FAST
+                EPG scheduling.
+              </p>
+            </div>
+
+            <div class="glass-subcard glass-subcard--on-green">
+              <h3 class="heading-4 heading-4--ink">
+                Android TV / AOSP Launcher (<code>streamy-tv-shell</code>)
+                <span class="status-badge status-badge--ink">Built &amp; Ready</span>
+              </h3>
+              <p class="body-text">
+                Native Kotlin Leanback launcher + Media3 ExoPlayer featuring multi-row discovery, Live TV
+                FAST tuning, 10-foot QR activation screen, D-pad/Voice search, WebVTT Closed Captions
+                (<code>CC: ON/OFF</code> for FCC CVAA), Ad Pod HUD, 10-second Up Next countdown, Cast
+                poller, and ambient screensaver—with zero wallet keys on hardware.
+              </p>
+            </div>
+
+            <div class="glass-subcard glass-subcard--on-green">
+              <h3 class="heading-4 heading-4--ink">
+                Dual-Chain USDC Payout Splitters (MIT)
+                <span class="status-badge status-badge--ink">Audit-Hardened</span>
+              </h3>
+              <p class="body-text">
+                Clean-room MIT constant-time splitters for both <strong>Solana SPL USDC</strong> (Anchor
+                0.30.1 PDA vault, checked <code>u128</code> math) and <strong>Ethereum / Base ERC20
+                USDC</strong> (Solidity 0.8.27, 6/6 EVM audit regression tests passing, <code>1e30</code>
+                remainder-preserving accounting, EIP-712 meta-txs, Safe/Privy smart-account safe).
+              </p>
+            </div>
+
+            <div class="glass-subcard glass-subcard--on-green">
+              <h3 class="heading-4 heading-4--ink">
+                Streamy HDMI Stick &amp; FCC Certification
+                <span class="status-badge status-badge--ink">In Progress</span>
+              </h3>
+              <p class="body-text">
+                Hardware regulatory approval (FCC) is underway. In parallel, we are preparing signed A/B
+                OTA firmware packaging, HDMI-CEC One-Touch Play, multi-bitrate HLS/DASH edge caching in
+                front of decentralized storage, and Safe/Squads multisig mainnet deployments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4-Phase Roadmap Timeline -->
+      <section class="band band--full band--dark" aria-labelledby="phases-heading">
+        <div class="band-bg-image band-bg-image--how" aria-hidden="true"></div>
+        <div class="band-bg-mask band-bg-mask--dark" aria-hidden="true"></div>
+        <div class="band-inner band-inner--front">
+          <h2 id="phases-heading" class="heading-1">Product &amp; Protocol Roadmap</h2>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">1</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">
+                  Phase 1: Core Streamy OS &amp; Panorama Proof Loop
+                  <span class="status-badge status-badge--done">Completed</span>
+                </h3>
+                <p class="body-text">
+                  Shipped modular microservices (<code>channel-graph-api</code>, <code>panorama-edge</code>, <code>payouts</code>,
+                  <code>trust-api</code>, <code>ugc-ads-api</code>, <code>comments-api</code>), RISC Zero / signed PoI verification loop,
+                  creator web dashboard (<code>streamy-rocks-react</code>), and self-hosted <code>streamy.rocks</code> on
+                  GitHub Pages.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">2</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">
+                  Phase 2: Living-Room Parity &amp; Dual-Chain USDC Splitters
+                  <span class="status-badge status-badge--done">Completed</span>
+                </h3>
+                <p class="body-text">
+                  Implemented Tubi/Roku living-room features (QR pairing at <code>/activate</code>, Cast-to-TV,
+                  Continue Watching, Up Next autoplay, 24/7 FAST EPG, Parental PINs, WebVTT Closed
+                  Captions, ad frequency capping + VAST/house waterfall) alongside MIT Solana &amp;
+                  Ethereum/Base USDC splitters.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">3</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">
+                  Phase 3: FCC Approval, HLS Edge Transcoding &amp; Creator Pilot
+                  <span class="status-badge status-badge--active">In Progress</span>
+                </h3>
+                <p class="body-text">
+                  Complete FCC certification for the Streamy HDMI stick, deploy multi-rung HLS/DASH
+                  transcoding + CDN cache in front of IPFS/Arweave, deploy Solana (Squads) &amp; Base
+                  (Gnosis Safe) mainnet splitters, and onboard founding documentary, tech, and gaming
+                  channels.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="step-badge step-badge--lg">4</span>
+                <span class="timeline-connector"></span>
+              </div>
+              <div class="timeline-body">
+                <h3 class="heading-4">
+                  Phase 4: Hardware Shipping &amp; Open CTV Ecosystem
+                  <span class="status-badge status-badge--next">Upcoming</span>
+                </h3>
+                <p class="body-text">
+                  Ship first retail Streamy HDMI sticks with HDMI-CEC One-Touch Play and signed A/B OTA
+                  updates, open self-serve Panorama living-room ad campaigns, and enable community-curated
+                  24/7 FAST channel syndication globally.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Launch Readiness Staircase -->
+      <section class="band band--navy" aria-labelledby="readiness-heading">
+        <div class="card card--contained card--dark">
+          <div class="card-pad">
+            <h2 id="readiness-heading" class="heading-1">Path to Living-Room Launch</h2>
+            <div class="staircase">
+              <div class="staircase-bars" aria-hidden="true">
+                <div class="staircase-bar staircase-bar--1">25% · Core OS</div>
+                <div class="staircase-bar staircase-bar--2">50% · Living-Room UX &amp; USDC</div>
+                <div class="staircase-bar staircase-bar--3">75% · FCC &amp; Mainnet Pilot</div>
+                <div class="staircase-bar staircase-bar--4">100% · Retail Stick Rollout</div>
+              </div>
+              <ol class="staircase-steps">
+                <li class="staircase-step">
+                  <span class="step-badge step-badge--md" aria-hidden="true">1</span>
+                  <h3 class="heading-4">Microservices, Proof-of-Impression &amp; Open Web Foundation — Done</h3>
+                </li>
+                <li class="staircase-step">
+                  <span class="step-badge step-badge--md" aria-hidden="true">2</span>
+                  <h3 class="heading-4">Android TV Launcher, FAST EPG, Cast-to-TV &amp; Dual-Chain Splitters — Done</h3>
+                </li>
+                <li class="staircase-step">
+                  <span class="step-badge step-badge--md" aria-hidden="true">3</span>
+                  <h3 class="heading-4">FCC Hardware Certification, HLS Edge &amp; Safe/Squads Mainnet — Active</h3>
+                </li>
+                <li class="staircase-step">
+                  <span class="step-badge step-badge--md" aria-hidden="true">4</span>
+                  <h3 class="heading-4">First Stick Shipments, Signed OTA &amp; Open Panorama Ad Demand — Next</h3>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span>&copy; Streamy.Rocks &middot; Decentralized Living-Room Streaming</span>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./roadmap.html">Roadmap</a>
+          <a href="./panorama.html">Panorama Ads</a>
+          <a href="./developers.html">Developer Docs</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
